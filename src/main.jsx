@@ -6,9 +6,13 @@ import Shop from "./pages/Shop/shop";
 import Mine from './pages/Mine/mine'
 import NotFind from './pages/404/404'
 import Content from './pages/MoveContent/MoveContent'
+import Start from './pages/start/start'
+import Login from './pages/Login/login'
 ReactDOM.render(
 	<Router>
 		<Routes>
+			<Route index element={<Start/>}></Route>
+			<Route path='Login' element={<Login/>}></Route>
 			<Route path="/" element={<App />}>
 				<Route path="/Home" element={<Home />} />
 				<Route path='/Mine' element={<Mine/>}/>

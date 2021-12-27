@@ -3,12 +3,23 @@
   padding: 0;
 }
 .box{
+  position: relative;
   padding: 0 15px;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
 }
+.MineBackground{
+  z-index: -15;
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  left: 0;
+  top: 0;
+  background: url('https://static.meiye.art/FnPq9Hn-pXL3ALIC_e5Mf20HzKxt?imageView2/2/w/500');
+}
 .user{
+  z-index: 10;
   margin-top: 60px;
   display: flex;
   justify-content: center;
@@ -16,10 +27,10 @@
   flex-direction: column;
   width: 100%;
   div{
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    background: url('../img/user.jpg') round;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4b1l6MIGM_OrepK9EEfFvmutnBm74lHIydA&usqp=CAU') round;
   }
   p{
     margin: 4px 0;
@@ -34,13 +45,13 @@
   width: 100%;
   height: auto;
   justify-content: space-between;
-  background-color: yellowgreen;
   .ListBox{
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 80px;
     width: 80px;
+    border-radius: 5px;
     img{
       width: 50px;
       height: 50px;
