@@ -1,4 +1,4 @@
-import { useState,useEffect} from "react";
+import { useState,useEffect, useCallback} from "react";
 import { Button } from "antd";
 import { ReactDOM, React } from "../global/global";
 import { Route, Link, Routes, useNavigate,Outlet,NavLink} from "react-router-dom";
@@ -26,7 +26,7 @@ function App() {
 					Path.map(item=>{
 						return(
 							<NavLink to={item.pagePath} key={item.id} onClick={()=>Gopath(item)}>
-							<img src={getImageUrl(item.imgSrc)} alt="" />
+							<img src={useCallback(getImageUrl(item.imgSrc),[Path])} alt="" />
 						</NavLink>
 						)
 					})
