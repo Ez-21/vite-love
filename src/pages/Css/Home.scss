@@ -63,14 +63,18 @@
 	.ListBox {
 		padding: 10px;
 		display: flex;
+		justify-content: space-between;
 		height: auto;
     align-items: center;
 		margin-top: 20px;
 		.leftContent{
 			display: flex;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			width: 63%;
 			img {
 				width: 65px;
-				height: 100%;
 			}
 		}
 		.content {

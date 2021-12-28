@@ -7,7 +7,7 @@
   left: 0;
   background: inherit;
   background-attachment: fixed;
-  filter: blur(2px);
+  // filter: blur(2px);
   overflow:hidden;
 }
 .LoginBox {
@@ -57,10 +57,9 @@
 			line-height: 100%;
 			width: 180px;
 			border-radius: 7px;
-      border: 2px solid #ccc;
 		}
 		a:hover {
-			color: #255784;
+			color: white;
 			background: #2196f3;
 			box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 70px #2196f3;
 			transition-delay: 1s;

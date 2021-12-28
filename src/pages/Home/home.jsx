@@ -20,9 +20,13 @@ function App() {
 	}, []);
 	// 去详情
 	function goContent(value, e) {
-		e.stopPropagation();
+		// e.stopPropagation();
 		console.log(value);
 		nav(`/Content/${value.toString()}`);
+	}
+	// 点击买票
+	const Buyticket=(item)=>{
+		// if(item.showStateButton.content=='预售')
 	}
 	return (
 		<div>
@@ -70,10 +74,8 @@ function App() {
 				{content.map((item) => (
 					<div className="ListBox" key={item.id}>
 						<div
-						className="leftContent"
-							onClick={(e) => {
-								goContent(item, e);
-							}}
+							className="leftContent"
+							onClick={e=> goContent(item.id, e)}
 						>
 							<img src={item.img} alt="" />
 							<div className="content">
@@ -94,6 +96,7 @@ function App() {
 						<div
 							className="button"
 							style={{ background: item.showStateButton.color }}
+							onClick={e=>Buyticket(item)}
 						>
 							{item.showStateButton.content}
 						</div>

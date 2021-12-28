@@ -7,8 +7,10 @@ class Shop extends React.Component{
   }
   render() {
     return (
-      <div>
-            Shop
+      <div className="ShopBox">
+            <div>
+              shop页面
+            </div>
       </div>
     );
   }
