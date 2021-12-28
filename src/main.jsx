@@ -1,6 +1,5 @@
 import { ReactDOM, React } from "../global/global";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Provider, KeepAlive } from "react-keep-alive";
 import App from "./App";
 import Home from "./pages/Home/home";
 import Shop from "./pages/Shop/shop";
