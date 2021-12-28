@@ -12,9 +12,11 @@
     "sass-loader": "^12.4.0"
   },
   "devDependencies": {
+    "@types/node": "^17.0.5",
     "@vitejs/plugin-react": "^1.0.7",
     "antd": "^4.17.3",
     "axios": "^0.24.0",
+    "dotenv": "^10.0.0",
     "http-proxy-middleware": "^2.0.1",
     "prop-types": "^15.7.2",
     "react-router-dom": "^6.1.1",
