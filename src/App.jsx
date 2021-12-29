@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useReducer } from "react";
+import { useState, useEffect, useCallback, useReducer, useMemo } from "react";
 import { Button } from "antd";
 import { ReactDOM, React } from "../global/global";
 import {
@@ -19,13 +19,13 @@ function App() {
 		{ id: 2, pagePath: "/Shop", imgSrc: "star" },
 		{ id: 3, pagePath: "/Mine", imgSrc: "mine" },
 	];
-	function SetPath(arr,index){
-		console.log(arr,index)
+	function SetPath(arr, index) {
+		console.log(arr, index);
 		arr.map((item) => (item.imgSrc = item.imgSrc.replace("ed", "")));
 		arr[index].imgSrc = arr[index].imgSrc + "ed";
-		return arr
+		return [...arr]
 	}
-	const [imgPath,SetImgPath] = useReducer(SetPath,Path)
+	const [imgPath, SetImgPath] = useReducer(SetPath, Path);
 	const getImageUrl = (name) => {
 		return new URL(`pages/img/${name}.png`, import.meta.url).href;
 	};
@@ -40,7 +40,10 @@ function App() {
 							key={item.id}
 							onClick={() => SetImgPath(index)}
 						>
-							<img src={useCallback(getImageUrl(item.imgSrc), [Path])} alt="" />
+							<img
+								src={useMemo(() => getImageUrl(item.imgSrc), [imgPath])}
+								alt=""
+							/>
 						</NavLink>
 					);
 				})}

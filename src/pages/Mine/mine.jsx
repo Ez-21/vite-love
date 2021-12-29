@@ -7,7 +7,7 @@ const List = [
 	{ name: "浏览历史", id: 3, imgUrl: "calendar" },
 	{ name: "护眼模式", id: 4, imgUrl: "theme" },
 	{ name: "设置", id: 5, imgUrl: "setting" },
-	{ name: "退出登录", id: 6, imgUrl: "user" },
+	{ name: "退出登录", id: 6, imgUrl: "giao" },
 ];
 function Jon(index, Go) {
 	switch (index) {

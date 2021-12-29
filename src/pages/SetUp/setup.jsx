@@ -60,7 +60,7 @@ function SetUp() {
 				<Banner
 					type="danger"
 					onClose={() => SetBannerShow(false)}
-					description="爱用不用,看给你能的🤡"
+					description="都好兄弟,没什么意见🙅‍♂️"
 				/>
 			)}
 			<TileBack name={"设置"}></TileBack>
