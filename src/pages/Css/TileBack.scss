@@ -1,0 +1,24 @@
+.BackBox {
+	position: absolute;
+	top: 10px;
+	width: 100%;
+	font-size: 18px;
+	img {
+		position: absolute;
+		left: 10px;
+		width: 30px;
+		height: 30px;
+	}
+	span {
+		position: absolute;
+		left: 50%;
+		font-weight: 600;
+		transform: translateX(-50%);
+	}
+	p {
+		position: absolute;
+		right: 10px;
+		font-size: 16px;
+		font-weight: normal;
+	}
+}

@@ -8,6 +8,15 @@ export function Banner(params) {
 }
 
 // 电影详情
+export function Upcoming(params) {
+	return axios({
+		url: "/api/comingList",
+		method: "GET",
+		params,
+	});
+}
+
+// 电影详情
 export function MovContent(params) {
 	return axios({
 		url: "/api/detailmovie",

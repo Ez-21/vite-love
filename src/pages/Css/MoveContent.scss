@@ -1,12 +1,61 @@
-.MoveContent{
-    width: 95%;
-    margin: 0 auto;
-    .MoveHead{
-        font-size: 20px;
-        font-weight: 600;
-    }
-    video{
-        width: 100%;
-        height: 200px;
-    }
+.MoveModel {
+	width: 100%;
+	height: 100%;
+	background-color: #62662f;
+}
+.MoveContent {
+	width: 95%;
+	margin: 0 auto;
+	.MoveHead {
+		margin: 15px 0;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		width: 100%;
+		height: 140px;
+		background-color: rgb(107, 204, 27);
+		.Headposter {
+			width: 100px;
+			height: 100%;
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+		.MoveText {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			height: 100%;
+			.MoveName {
+				margin-bottom: 5px;
+				font-size: 18px;
+				color: white;
+			}
+			.MoveInfo {
+				font-size: 15px;
+				opacity: 0.6;
+				color: rgb(255, 255, 255);
+				button {
+					width: 50%;
+				}
+			}
+		}
+	}
+	video {
+		width: 100%;
+		height: 200px;
+	}
+	.MoveBrief {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		:first-child {
+			color: white;
+            font-size: 14px;
+		}
+	}
 }

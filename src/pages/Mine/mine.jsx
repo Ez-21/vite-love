@@ -11,6 +11,11 @@ const List = [
 ];
 function Jon(index, Go) {
 	switch (index) {
+		case 2:
+			{
+				Go("/MessageList");
+			}
+			break;
 		case 5:
 			{
 				Go("/SetUp");

@@ -2,22 +2,38 @@ import React, { useTransition, useReducer, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "../Css/Home.scss";
 import { Button, Input, message, Carousel } from "antd";
-import { Banner } from "../../api/home";
+import { Banner, Upcoming } from "../../api/home";
 import { Route, Link, Routes, useNavigate, Outlet } from "react-router-dom";
 
 function App() {
+	const [coming,SetComing] = useState([]);
 	const [content, SetContent] = useState([]);
 	const nav = useNavigate();
-	useEffect(() => {
+	// 获取电影列表
+	const moveList = () => {
 		Banner().then((res) => {
 			console.log(res.movieList);
 			res.movieList.map((item) => (item.img = item.img.replace("/w.h", "")));
 			SetContent((content) => {
 				return (content = res.movieList);
 			});
-			console.log(content);
 		});
+	};
+	// 获取即将上映
+	const Upcom = () => {
+		Upcoming({ ci: 10, token: "", limit: 10 })
+			.then((res) => {
+				 res.coming.map((item) => (item.img = item.img.replace("/w.h", "")));
+				SetComing(res.coming)
+				console.log(coming)
+			})
+			.catch((err) => {});
+	};
+	useEffect(() => {
+		moveList();
+		Upcom();
 	}, []);
+
 	// 去详情
 	function goContent(value, e) {
 		// e.stopPropagation();
@@ -25,37 +41,18 @@ function App() {
 		nav(`/Content/${value.toString()}`);
 	}
 	// 点击买票
-	const Buyticket=(item)=>{
+	const Buyticket = (item) => {
 		// if(item.showStateButton.content=='预售')
-	}
+	};
 	return (
 		<div>
 			<header>
 				<Carousel autoplay className="Carousel">
-					<div>
-						<img
-							src="https://image.tmdb.org/t/p/w780/aRNMwIvEnYEMwGHLCAACyuq2I1K.jpg"
-							alt=""
-						/>
-					</div>
-					<div>
-						<img
-							src="https://image.tmdb.org/t/p/w780/uSfvQrWFtEdSFKrN9we8YLKuQSj.jpg"
-							alt=""
-						/>
-					</div>
-					<div>
-						<img
-							src="https://image.tmdb.org/t/p/w780/nR4bszmqhXTEkdxIc2nSq6Of4JX.jpg"
-							alt=""
-						/>
-					</div>
-					<div>
-						<img
-							src="https://image.tmdb.org/t/p/w780/wn94myxPzPNeaHBA3LeaBhlv8iz.jpg"
-							alt=""
-						/>
-					</div>
+					{coming.map((item) => (
+						<div key={item.id} >
+							<img src={item.img} alt={item.nm} />
+						</div>
+					))}
 				</Carousel>
 			</header>
 			<div className="Homecontent">
@@ -73,10 +70,7 @@ function App() {
 			<div className="List">
 				{content.map((item) => (
 					<div className="ListBox" key={item.id}>
-						<div
-							className="leftContent"
-							onClick={e=> goContent(item.id, e)}
-						>
+						<div className="leftContent" onClick={(e) => goContent(item.id, e)}>
 							<img src={item.img} alt="" />
 							<div className="content">
 								<p className="title">
@@ -96,7 +90,7 @@ function App() {
 						<div
 							className="button"
 							style={{ background: item.showStateButton.color }}
-							onClick={e=>Buyticket(item)}
+							onClick={(e) => Buyticket(item)}
 						>
 							{item.showStateButton.content}
 						</div>
