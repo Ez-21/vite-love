@@ -1,6 +1,11 @@
-import { useState, useEffect, useCallback, useReducer, useMemo } from "react";
+import React, {
+	useState,
+	useEffect,
+	useCallback,
+	useReducer,
+	useMemo,
+} from "react";
 import { Button } from "antd";
-import { ReactDOM, React } from "../global/global";
 import {
 	Route,
 	Link,
@@ -10,7 +15,7 @@ import {
 	NavLink,
 } from "react-router-dom";
 import "antd/dist/antd.css";
-import "../src/pages/Css/App.scss";
+import "./pages/Css/App.scss";
 import path from "path";
 
 function App() {
@@ -22,18 +27,19 @@ function App() {
 	function SetPath(arr, index) {
 		console.log(arr, index);
 		arr.map((item) => (item.imgSrc = item.imgSrc.replace("ed", "")));
+		// 被点击的图标加个ed
 		arr[index].imgSrc = arr[index].imgSrc + "ed";
-		return [...arr]
+		return [...arr];
 	}
 	const [imgPath, SetImgPath] = useReducer(SetPath, Path);
 	const getImageUrl = (name) => {
-		return new URL(`pages/img/${name}.png`, import.meta.url).href;
+		return new URL(`./pages/img/${name}.png`, import.meta.url).href;
 	};
 	return (
 		<div>
 			<Outlet></Outlet>
 			<div className="Tar">
-				{Path.map((item, index) => {
+				{imgPath.map((item, index) => {
 					return (
 						<NavLink
 							to={item.pagePath}
@@ -41,7 +47,7 @@ function App() {
 							onClick={() => SetImgPath(index)}
 						>
 							<img
-								src={useMemo(() => getImageUrl(item.imgSrc), [imgPath])}
+								src={getImageUrl(item.imgSrc)}
 								alt=""
 							/>
 						</NavLink>

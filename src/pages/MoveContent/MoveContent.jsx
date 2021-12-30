@@ -1,21 +1,10 @@
-import react, { useEffect, useReducer, useState, useMemo } from "react";
+import react, { useEffect, useReducer, useState, useMemo, useLayoutEffect } from "react";
 import { useParams } from "react-router-dom";
 import { MovContent } from "/src/api/home";
 import { message } from "antd";
 import smile from "/src/pages/img/yellow7.png";
 import "../Css/MoveContent.scss";
 
-const getRandomColor = function () {
-	return (
-		"#" +
-		(function (color) {
-			return (color += "5678956789defdef"[Math.floor(Math.random() * 16)]) &&
-				color.length == 6
-				? color
-				: getRandomColor(color);
-		})("")
-	);
-};
 // 组件
 function Content() {
 	const params = useParams();
@@ -31,13 +20,13 @@ function Content() {
 				console.log(err);
 			});
 	}
-	useEffect(MovCon(params.params), []);
+	useLayoutEffect(()=>MovCon(params.params), []);
 	return (
 		<div className="MoveModel">
 			<div className="MoveContent">
 				<div className="MoveHead">
 					<div className="Headposter">
-						<img src={mess.img.replace("/w.h", "")} alt="" />
+						{/* <img src={mess.img.replace("/w.h", "")} alt="" /> */}
 					</div>
 					<div className="MoveText">
 						<p className="MoveName">{mess.nm}</p>

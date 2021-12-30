@@ -2,8 +2,13 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
+  base:'/',
   plugins: [react()],
   server:{
+    open:true,
+    port:2000,
+    logLevel:'error',
+    clearScreen:false,
     proxy:{
      '/api':{
       target: 'https://m.maoyan.com/ajax', // 请求转发给谁
@@ -13,5 +18,6 @@ export default defineConfig({
       rewrite: path => path.replace(/^\/api/, '')
      }
     }
-  }
+  },
+  
 })

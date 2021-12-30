@@ -1,5 +1,7 @@
+import { message } from "antd";
 import react from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Dialog, Button } from "react-vant";
 import "../../pages/Css/Mine.scss";
 const List = [
 	{ name: "我的余额", id: 1, imgUrl: "money" },
@@ -7,7 +9,8 @@ const List = [
 	{ name: "浏览历史", id: 3, imgUrl: "calendar" },
 	{ name: "护眼模式", id: 4, imgUrl: "theme" },
 	{ name: "设置", id: 5, imgUrl: "setting" },
-	{ name: "退出登录", id: 6, imgUrl: "giao" },
+	{ name: "分享我们", id: 6, imgUrl: "share" },
+	{ name: "退出登录", id: 7, imgUrl: "giao" },
 ];
 function Jon(index, Go) {
 	switch (index) {
@@ -21,8 +24,13 @@ function Jon(index, Go) {
 				Go("/SetUp");
 			}
 			break;
-		case 6: {
-			Go("/Login");
+		case 7: {
+			Dialog.confirm({
+				title: "等等!",
+				message: "兄弟别走,啥都好说😭",
+			}).then(() => {
+				Go("/Login");
+			});
 			break;
 		}
 		default:
