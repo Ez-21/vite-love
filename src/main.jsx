@@ -3,15 +3,16 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Provider, KeepAlive } from "react-keep-alive";
 import 'react-vant/lib/index.css';
 import App from "./App";
-import Home from "./pages/Home/home";
-import Shop from "./pages/Shop/shop";
-import Mine from "./pages/Mine/mine";
+import Home from "./pages/Home/Home";
+import Shop from "./pages/Shop/Shop";
+import Mine from "./pages/Mine/Mine";
 import NotFind from "./pages/404/404";
-import Content from "./pages/MoveContent/MoveContent";
-import Start from "./pages/start/start";
-import Login from "./pages/Login/login";
-import SetUp from "./pages/SetUp/setup";
-import MessageList from "./pages/MessageList/messageList";
+import MoveContent from "./pages/MoveContent/MoveContent";
+import Start from "./pages/start/Start";
+import Login from "./pages/Login/Login";
+import SetUp from "./pages/SetUp/Setup";
+import MessageList from "./pages/MessageList/MessageList";
+import User from './pages/User/User'
 ReactDOM.render(
 	<Router>
 		<Routes>
@@ -23,9 +24,10 @@ ReactDOM.render(
 				<Route path="/Shop" element={<Shop />} />
 				<Route path="*" element={<NotFind />} />
 			</Route>
-			<Route path="/Content/:params" element={<Content />}></Route>
+			<Route path="/MoveContent/:params" element={<MoveContent />}></Route>
 			<Route path="/SetUp" element={<SetUp />}></Route>
 			<Route path="/MessageList" element={<MessageList />}></Route>
+			<Route path="/User" element={<User />}></Route>
 		</Routes>
 	</Router>,
 	document.getElementById("root")

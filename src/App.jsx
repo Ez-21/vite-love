@@ -46,10 +46,7 @@ function App() {
 							key={item.id}
 							onClick={() => SetImgPath(index)}
 						>
-							<img
-								src={getImageUrl(item.imgSrc)}
-								alt=""
-							/>
+							<img src={getImageUrl(item.imgSrc)} alt="" />
 						</NavLink>
 					);
 				})}

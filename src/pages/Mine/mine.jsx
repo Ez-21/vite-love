@@ -1,13 +1,12 @@
 import { message } from "antd";
 import react from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Dialog, Button } from "react-vant";
+import { Dialog, Toast } from "react-vant";
 import "../../pages/Css/Mine.scss";
 const List = [
 	{ name: "我的余额", id: 1, imgUrl: "money" },
 	{ name: "我的消息", id: 2, imgUrl: "message" },
 	{ name: "浏览历史", id: 3, imgUrl: "calendar" },
-	{ name: "护眼模式", id: 4, imgUrl: "theme" },
 	{ name: "设置", id: 5, imgUrl: "setting" },
 	{ name: "分享我们", id: 6, imgUrl: "share" },
 	{ name: "退出登录", id: 7, imgUrl: "giao" },
@@ -43,12 +42,15 @@ export default function () {
 		return new URL(`../img/${name}.png`, import.meta.url).href;
 	};
 	const Nav = useNavigate();
+	const UserMess = () => {
+		Nav('/User')
+	};
 	return (
 		<div className="box">
 			<div className="MineBackground">
 				<img src="https://w.wallhaven.cc/full/3z/wallhaven-3z7exy.jpg" alt="" />
 			</div>
-			<div className="user">
+			<div className="user" onClick={UserMess}>
 				<div></div>
 				<p>张杰</p>
 			</div>

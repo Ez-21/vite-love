@@ -1,0 +1,50 @@
+.UserAll{
+  overflow: hidden;
+	height: 100vh;
+}
+.UserBox {
+  position: relative;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+	width: 94%;
+  height: inherit;
+  .Box {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 15px;
+		width: 100%;
+		height: auto;
+		padding: 2px 0;
+		img {
+			margin-left: 3px;
+			width: 20px;
+			height: 20px;
+		}
+		.HeadPhoto {
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+		}
+		input[type="file"] {
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 50px;
+			height: 50px;
+			opacity: 0;
+		}
+	}
+}
+.bgcolor {
+	background: rgba(0, 0, 0, 0.2) !important;
+}
+.button{
+  position: absolute;
+	width: 94%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
+}

@@ -38,7 +38,7 @@ function App() {
 	function goContent(value, e) {
 		// e.stopPropagation();
 		console.log(value);
-		nav(`/Content/${value.toString()}`);
+		nav(`/MoveContent/${value.toString()}`);
 	}
 	// 点击买票
 	const Buyticket = (item) => {
