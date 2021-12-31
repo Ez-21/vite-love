@@ -37,14 +37,15 @@
 			opacity: 0;
 		}
 	}
+
+}
+.SaveButton{
+	position: absolute !important;
+	width: 94%;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 30px;
 }
 .bgcolor {
 	background: rgba(0, 0, 0, 0.2) !important;
-}
-.button{
-  position: absolute;
-	width: 94%;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 30px;
 }

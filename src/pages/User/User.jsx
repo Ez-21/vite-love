@@ -18,9 +18,7 @@ const List = [
 	{ id: 4, text: "地区" },
 	{ id: 5, text: "生日" },
 ];
-const GetImg = () => {
-	return new URL(`../img/join.png`, import.meta.url).href;
-};
+
 // 保存
 const Save = ()=>{
   setTimeout(() => {
@@ -34,6 +32,7 @@ function User() {
 	const [Sex, SetSex] = useState(["男", "女"]);
 	const [Visible, SetVisible] = useState(false);
 	const FileUploader = (file) => {
+		console.log(file)
 		SetHeadPhoto(file.target.value);
 	};
 	const listClick = (id) => {
@@ -46,7 +45,9 @@ function User() {
 		SetPoup(false);
 		alert(Poup);
 	};
-  
+  const GetImg = () => {
+		return new URL(HeadPhoto, import.meta.url).href;
+	};
   return (
 		<div className="UserAll">
 			<TileBack name="个人信息"></TileBack>
@@ -56,7 +57,7 @@ function User() {
 						<span>{item.text}</span>
 						<div>
 							{item.id == 1 && (
-								<img src={HeadPhoto} alt="" className="HeadPhoto" />
+								<img src={GetImg()} alt="" className="HeadPhoto" />
 							)}
 							{item.id == 1 && (
 								<input type="file" onChange={(e) => FileUploader(e)} />
@@ -82,17 +83,17 @@ function User() {
                   duration='0.5'
 								></Popup>
 							)}
-							{item.id != 1 && (
+							{/* {item.id != 1 && (
 								<Fragment>
 									<span>嘿嘿</span>
 									<img src={GetImg()} alt="" />
 								</Fragment>
-							)}
+							)} */}
 						</div>
 					</div>
 				))}
 			</div>
-      <Button type="primary" block className="button" onClick={Save}>保存</Button>
+      <Button type="primary" block className="SaveButton" onClick={Save}>保存</Button>
 		</div>
 	);
 }

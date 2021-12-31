@@ -2,7 +2,7 @@ import React, { useTransition, useReducer, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "../Css/Home.scss";
 import { Button, Input, message, Carousel } from "antd";
-import { Banner, Upcoming } from "../../api/home";
+import { Banner, Upcoming,BuyTicket } from "../../api/home";
 import { Route, Link, Routes, useNavigate, Outlet } from "react-router-dom";
 
 function App() {
@@ -42,6 +42,9 @@ function App() {
 	}
 	// 点击买票
 	const Buyticket = (item) => {
+		// BuyTicket({movieId:item,ci:57,lat:35.709026,lng:139.731993})
+		location.href = `https://m.maoyan.com/mtrade/cinema/movie?movieId=${item}&ci=57&lat=35.709026&lng=139.731993`
+		// window.open()
 		// if(item.showStateButton.content=='预售')
 	};
 	return (
@@ -90,7 +93,7 @@ function App() {
 						<div
 							className="button"
 							style={{ background: item.showStateButton.color }}
-							onClick={(e) => Buyticket(item)}
+							onClick={(e) => Buyticket(item.id)}
 						>
 							{item.showStateButton.content}
 						</div>

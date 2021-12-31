@@ -8,8 +8,7 @@ const List = [
 	{ name: "我的消息", id: 2, imgUrl: "message" },
 	{ name: "浏览历史", id: 3, imgUrl: "calendar" },
 	{ name: "设置", id: 5, imgUrl: "setting" },
-	{ name: "分享我们", id: 6, imgUrl: "share" },
-	{ name: "退出登录", id: 7, imgUrl: "giao" },
+	{ name: "退出登录", id: 7, imgUrl: "quit" },
 ];
 function Jon(index, Go) {
 	switch (index) {

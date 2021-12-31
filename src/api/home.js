@@ -1,7 +1,7 @@
 import axios from "../axios/axios";
 export function Banner(params) {
 	return axios({
-		url: "/api/movieOnInfoList ",
+		url: "/api/ajax/movieOnInfoList ",
 		method: "GET",
 		params,
 	});
@@ -10,7 +10,7 @@ export function Banner(params) {
 // 电影详情
 export function Upcoming(params) {
 	return axios({
-		url: "/api/comingList",
+		url: "/api/ajax/comingList",
 		method: "GET",
 		params,
 	});
@@ -19,8 +19,26 @@ export function Upcoming(params) {
 // 电影详情
 export function MovContent(params) {
 	return axios({
-		url: "/api/detailmovie",
+		url: "/api/ajax/detailmovie",
 		method: "GET",
 		params,
 	});
+}
+
+// 电影评论
+export function MovComment(params) {
+	return axios({
+		url: "/api/review/v2/comments.json",
+		method: "GET",
+		params,
+	});
+}
+
+// 点击购票
+export function BuyTicket(params){
+	return axios({
+		url:'/api/mtrade/cinema/movie',
+		method:'GET',
+		params
+	})
 }

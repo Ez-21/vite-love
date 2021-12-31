@@ -19,7 +19,7 @@ function MessageList(props) {
 				<div className="MessListBox" ref={list}>
 					<div className="MessContent">
 						<Badge count={Num}>
-							<img src="/src/pages/img/yellow2.png" alt="" />
+							<img src="/src/pages/img/yellow6.png" alt="" />
 						</Badge>
 						<div>
 							<p className="MessTitle">官方新闻</p>

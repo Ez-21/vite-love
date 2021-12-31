@@ -9,7 +9,7 @@ const getImageUrl = (name) => {
 };
 const List = [
 	{ text: "清除缓存", img: "clear", id: 1 },
-	{ text: "意见反馈", img: "idea", id: 2 },
+	{ text: "提个意见", img: "idea", id: 2 },
 ];
 
 function SetUp() {
