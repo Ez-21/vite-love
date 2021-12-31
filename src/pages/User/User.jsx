@@ -6,7 +6,7 @@ import {
 	Popup,
 	ActionSheet,
 	Cell,
-	Notify,
+	Toast,
 	Button,
 } from "react-vant";
 // import { areaList } from '@vant/area-data';
@@ -22,7 +22,7 @@ const List = [
 // 保存
 const Save = ()=>{
   setTimeout(() => {
-    Notify.show({ type: 'primary', message: '保存成功' });
+    Toast({ message: '保存成功' ,iconSize:'70px',icon:'http://wx4.sinaimg.cn/bmiddle/006Mi9iRgy1gug1hd7slyj60go0goq3a02.jpg'});
   }, 400);
 }
 function User() {
