@@ -13,6 +13,7 @@ import Login from "./pages/Login/Login";
 import SetUp from "./pages/SetUp/Setup";
 import MessageList from "./pages/MessageList/MessageList";
 import User from './pages/User/User'
+import ShopContent from './pages/ShopContent/ShopContent'
 ReactDOM.render(
 	<Router>
 		<Routes>
@@ -28,6 +29,7 @@ ReactDOM.render(
 			<Route path="/SetUp" element={<SetUp />}></Route>
 			<Route path="/MessageList" element={<MessageList />}></Route>
 			<Route path="/User" element={<User />}></Route>
+			<Route path="/ShopContent/:query" element={<ShopContent />}></Route>
 		</Routes>
 	</Router>,
 	document.getElementById("root")

@@ -8,7 +8,7 @@ const Request = axios.create({
   headers: {
     "Content-Type": 'application/json',
     'Accept': 'text/javascript, application/javascript',
-    'Accept-Encoding': 'gzip, deflate, sdch',
+    // 'Accept-Encoding': 'gzip, deflate, sdch',
     'Accept-Language': 'zh-CN,zh;q=0.8',
   },
   transformRequest: [(data) => {

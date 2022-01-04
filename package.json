@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@douyinfe/semi-ui": "^2.2.0",
+    "@reduxjs/toolkit": "^1.7.1",
     "@types/node": "^17.0.5",
     "@vitejs/plugin-react": "^1.0.7",
     "antd": "^4.17.3",

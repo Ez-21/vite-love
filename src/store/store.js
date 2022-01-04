@@ -1,12 +1,4 @@
- import { connect } from 'react-redux'
+import { createStore } from 'redux'
 
-//  actions
-const Art = {
-  type:'Add_Art',
-  payload:{
-    user:{
-      name:'用户王某',
-      age:22,
-    }
-  }
-}
+const store = createStore()
+console.log(store.getState(),'数据状态')
