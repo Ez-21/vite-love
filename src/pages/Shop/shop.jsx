@@ -7,43 +7,49 @@ import {
 	IllustrationConstruction,
 	IllustrationConstructionDark,
 } from "@douyinfe/semi-illustrations";
-import "/src/pages/Css/Shop.scss";
 import { videos } from "../../api/shop";
-const Emp = () => (
-	<div className="EmpBox">
-		<Empty
-			image={<IllustrationConstruction style={{ width: 150, height: 150 }} />}
-			darkModeImage={
-				<IllustrationConstructionDark style={{ width: 150, height: 150 }} />
-			}
-			title={"功能正在建设,不要着急!"}
-			description="当前功能暂未开放，敬请期待。"
-		/>
-	</div>
-);
+import "/src/pages/Css/Shop.scss";
 
 function Shop() {
 	const [Feeds, SetFeeds] = useState([]);
 	const Go = useNavigate();
 	const goContent = (e) => {
-		Go(`/ShopContent/${JSON.stringify(e)}`);
+		Go(`/ShopContent`, { replace: true, state: { e } });
 	};
-	const Videos = () => {
-		videos({ channelId: 4, feedChannelId: 105, offset: 10 }).then(
+	const [Limit,SetLimit] = useState(10)
+	const VideoDom = () => {
+		videos({ channelId: 4, feedChannelId: 105, offset: Limit ,timestamp:+new Date()}).then(
 			({ data: { feeds } }) => {
+				// feeds.push(feeds);
 				SetFeeds(feeds);
 			}
 		);
 	};
-	useEffect(()=>Videos(), []);
+
+	useEffect(() => VideoDom(), []);
+	window.onscroll = function(){
+		// 滚动视口高度(也就是当前元素的真实高度)
+	 let scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+	 // 可见区域高度
+	 let clientHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+	 // 滚动条顶部到浏览器顶部高度
+	 let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+	 if(clientHeight + scrollTop == scrollHeight){
+			console.log('滚动条触底了')
+			SetLimit(Limit+10)
+			VideoDom()
+	 }
+}
 	return (
 		<div className="ShopBox">
+			<div className="ShopBoxTitle">精选视频</div>
 			<div className="ShopList">
 				{Feeds.map((item) => (
-					<div
-						onClick={()=>goContent(item)}
-						className="ShopListBox"
+					<Link
+						to="/ShopContent"
+						state={item}
 						key={item.id}
+						className="ShopListBox"
 						style={{ background: `url(${item.video.imgUrl})round` }}
 					>
 						<div className="ContentShop">
@@ -53,7 +59,7 @@ function Shop() {
 								<span>{item.user.nickName}</span>
 							</div>
 						</div>
-					</div>
+					</Link>
 				))}
 			</div>
 		</div>

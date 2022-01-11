@@ -7,7 +7,7 @@ const Request = axios.create({
   timeout: 3000,
   headers: {
     "Content-Type": 'application/json',
-    'Accept': 'text/javascript, application/javascript',
+    "Accept": "text/html, application/xhtml+html, application/xml; q=0.9, */*; q=0.8", // 告诉服务端可以处理的内容类型
     // 'Accept-Encoding': 'gzip, deflate, sdch',
     'Accept-Language': 'zh-CN,zh;q=0.8',
   },
@@ -15,6 +15,7 @@ const Request = axios.create({
     return JSON.stringify(data)
   }]
 })
+
 Request.interceptors.response.use(({
   data
 }) => {
@@ -22,4 +23,5 @@ Request.interceptors.response.use(({
 }, (err) => {
   message.error('请求失败!')
 })
+
 export default Request

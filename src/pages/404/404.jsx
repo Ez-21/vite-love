@@ -1,7 +1,7 @@
 export default function(){
   return(
     <div>
-      瞎几把找啥呢?
+      铁子 404啦
     </div>
   )
 }

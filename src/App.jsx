@@ -21,8 +21,9 @@ import path from "path";
 function App() {
 	const Path = [
 		{ id: 1, pagePath: "/Home", imgSrc: "home" },
-		{ id: 2, pagePath: "/Shop", imgSrc: "star" },
-		{ id: 3, pagePath: "/Mine", imgSrc: "mine" },
+		{ id: 2, pagePath: "/Music",imgSrc: "listen" },
+		{ id: 3, pagePath: "/Shop", imgSrc: "star" },
+		{ id: 4, pagePath: "/Mine", imgSrc: "mine" },
 	];
 	function SetPath(arr, index) {
 		console.log(arr, index);

@@ -1,12 +1,15 @@
-.EmpBox {
-	position: absolute;
-	left: 50%;
-	top: 40%;
+.ShopBox{
+	z-index: 200;
+}
+.ShopBoxTitle{
 	width: 100%;
-	transform: translate(-50%, -50%);
+	padding: 10px;
+	text-align: center;
+	background-color: #1890ff;
+	color: white;
+	font-size: 15px;
 }
 .ShopList {
-  padding-bottom: 60px;
 	box-sizing: border-box;
 	display: flex;
 	flex-wrap: wrap;

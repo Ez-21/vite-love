@@ -14,6 +14,7 @@ import SetUp from "./pages/SetUp/Setup";
 import MessageList from "./pages/MessageList/MessageList";
 import User from './pages/User/User'
 import ShopContent from './pages/ShopContent/ShopContent'
+import Music from './pages/Music/Music'
 ReactDOM.render(
 	<Router>
 		<Routes>
@@ -23,13 +24,14 @@ ReactDOM.render(
 				<Route path="/Home" element={<Home />} />
 				<Route path="/Mine" element={<Mine />} />
 				<Route path="/Shop" element={<Shop />} />
+				<Route path="/Music" element={<Music />} />
 				<Route path="*" element={<NotFind />} />
 			</Route>
 			<Route path="/MoveContent/:params" element={<MoveContent />}></Route>
 			<Route path="/SetUp" element={<SetUp />}></Route>
 			<Route path="/MessageList" element={<MessageList />}></Route>
 			<Route path="/User" element={<User />}></Route>
-			<Route path="/ShopContent/:query" element={<ShopContent />}></Route>
+			<Route path="/ShopContent" element={<ShopContent />}></Route>
 		</Routes>
 	</Router>,
 	document.getElementById("root")
