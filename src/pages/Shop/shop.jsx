@@ -39,7 +39,8 @@ function Shop() {
 			SetLimit(Limit+10)
 			VideoDom()
 	 }
-}
+	}
+	
 	return (
 		<div className="ShopBox">
 			<div className="ShopBoxTitle">精选视频</div>

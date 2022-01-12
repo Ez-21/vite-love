@@ -15,6 +15,9 @@ import MessageList from "./pages/MessageList/MessageList";
 import User from './pages/User/User'
 import ShopContent from './pages/ShopContent/ShopContent'
 import Music from './pages/Music/Music'
+import MusicList from './pages/MusicList/MusicList'
+import MusicContent from './pages/MusicContent/MusicContent'
+import MusicVideo from './pages/MusicVideo/MusicVideo'
 ReactDOM.render(
 	<Router>
 		<Routes>
@@ -32,6 +35,9 @@ ReactDOM.render(
 			<Route path="/MessageList" element={<MessageList />}></Route>
 			<Route path="/User" element={<User />}></Route>
 			<Route path="/ShopContent" element={<ShopContent />}></Route>
+			<Route path="/MusicList/:state" element={<MusicList />}></Route>
+			<Route path="/MusicContent/:state" element={<MusicContent />}></Route>
+			<Route path="/MusicVideo/:state" element={<MusicVideo />}></Route>
 		</Routes>
 	</Router>,
 	document.getElementById("root")
