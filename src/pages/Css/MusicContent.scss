@@ -1,0 +1,30 @@
+.MusicbgBox::after{
+  display: inline-block;
+  content: '';
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 15px 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: aquamarine;
+  filter:blur(30px)
+}
+.MusicbgBox{
+  height: 100vh;
+  overflow: hidden;
+}
+.MusicTextDetail{
+  position: absolute;
+  left: 0;
+  height: 800px;
+}
+.MusicTextBox{
+  position: relative;
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 97%;
+  height: 300px;
+  overflow: hidden;
+}

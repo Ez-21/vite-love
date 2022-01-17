@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
 import "/src/pages/Css/MusicList.scss";
 import { SearchMusic } from "../../api/muc";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 export default function MucList() {
-	const { state } = useParams();
+	const { states } = useParams();
+	const [offset, setoffset] = useState(1);
 	const [Song, SetSong] = useState([]);
 	const Go = useNavigate();
 	const Parmas = {
-		offset: 1,
+		offset: offset,
 		limit: 20,
 		type: 1,
-		s: state,
+		s: states,
 	};
 	const Content = (e) => {
 		console.log(e);
 		Go(`/MusicContent/${e}`);
 	};
 	const search = () => {
-		console.warn(123);
 		SearchMusic(Parmas)
 			.then(({ code, result }) => {
 				if (code == 200) {
@@ -31,23 +31,19 @@ export default function MucList() {
 				console.log(err);
 			});
 	};
-	const wacthMv = (value) => {
-		console.log(value, "movieID");
-    Go(`/MusicVideo/${value}`)
+	window.onscroll = function (e) {
+		console.log(e);
 	};
 	useEffect(() => {
 		search();
+		return (window.onscroll = "");
 	}, []);
 	return (
 		<div className="MucListBox">
 			<div className="MusicBOXFlex">
 				{Song.map((item) => (
-					<div
-						className="FlexList"
-						key={item.id}
-						onClick={(e) => Content(item.id)}
-					>
-						<div className="MusMess">
+					<div className="FlexList" key={item.id}>
+						<div className="MusMess" onClick={(e) => Content(item.id)}>
 							<div className="headImg">
 								<img srcSet={item.al.picUrl} alt="" />
 							</div>
@@ -57,11 +53,15 @@ export default function MucList() {
 						</div>
 						{Boolean(item.mv) && (
 							<div className="Mv">
-								<img
-									onClick={wacthMv(item.mv)}
-									src={new URL(`/src//pages/img/mv.png`, import.meta.url).href}
-									alt=""
-								/>
+								<Link to="/MusicVideo" state={{ item }}>
+									<img
+										// onClick={() => wacthMv(item.mv)}
+										src={
+											new URL(`/src//pages/img/mv.png`, import.meta.url).href
+										}
+										alt=""
+									/>
+								</Link>
 							</div>
 						)}
 					</div>

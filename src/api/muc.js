@@ -35,3 +35,9 @@ export function MusicVideo(id) {
     
   })
 }
+export function MusicMessage(data){
+    return axios({
+      url:`/mpi/v1/resource/comments/R_SO_4_${data}`,
+      method: 'POST',
+    })
+}

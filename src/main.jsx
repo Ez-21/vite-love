@@ -1,6 +1,6 @@
 import { ReactDOM, React } from "../global/global";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Provider, KeepAlive } from "react-keep-alive";
+// import { Provider, KeepAlive } from "react-keep-alive";
 import 'react-vant/lib/index.css';
 import App from "./App";
 import Home from "./pages/Home/Home";
@@ -35,9 +35,9 @@ ReactDOM.render(
 			<Route path="/MessageList" element={<MessageList />}></Route>
 			<Route path="/User" element={<User />}></Route>
 			<Route path="/ShopContent" element={<ShopContent />}></Route>
-			<Route path="/MusicList/:state" element={<MusicList />}></Route>
+			<Route path="/MusicList/:states" element={<MusicList />}></Route>
 			<Route path="/MusicContent/:state" element={<MusicContent />}></Route>
-			<Route path="/MusicVideo/:state" element={<MusicVideo />}></Route>
+			<Route path="/MusicVideo" element={<MusicVideo />}></Route>
 		</Routes>
 	</Router>,
 	document.getElementById("root")
